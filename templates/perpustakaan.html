@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Perpustakaan EduFit</h2>
+<div class="articles">
+    {% for idx, article in enumerate(articles) %}
+    <a class="article-card" href="{{ url_for('article_detail', id=idx) }}">{{ article.title }}</a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="article-detail">
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.content }}</p>
+    <a href="{{ url_for('perpustakaan') }}">← Kembali ke Perpustakaan</a>
+</article>
+{% endblock %}

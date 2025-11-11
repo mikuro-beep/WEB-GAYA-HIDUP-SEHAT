@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EduFit - Gaya Hidup Sehat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-links').classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="logo">EduFit</div>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav id="nav-links">
+        <a href="{{ url_for('home') }}">Beranda</a>
+        <a href="{{ url_for('perpustakaan') }}">Perpustakaan</a>
+        <a href="{{ url_for('kalkulator') }}">Kalkulator BMI & BMR</a>
+        <a href="{{ url_for('kritik') }}">Kritik & Saran</a>
+    </nav>
+</header>
+<main>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash-messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
+<footer>
+    <p>© 2025 EduFit - Semua hak cipta dilindungi.</p>
+</footer>
+</body>
+</html>

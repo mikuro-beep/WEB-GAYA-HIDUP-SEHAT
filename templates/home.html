@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="home">
+    <img src="{{ url_for('static', filename='images/healthy_lifestyle.jpg') }}" alt="Gaya Hidup Sehat" class="hero-image" />
+    <div class="intro">
+        <h2>Selamat datang di EduFit!</h2>
+        <p>Website edukasi dan panduan gaya hidup sehat untuk remaja dan dewasa.</p>
+    </div>
+    <aside class="facts-box">
+        <h3>Fakta Kesehatan</h3>
+        <ul>
+            {% for fact in facts %}
+            <li>{{ fact }}</li>
+            {% endfor %}
+        </ul>
+    </aside>
+    <blockquote class="quote">
+        “{{ quote.quote }}”<br />
+        <strong>- {{ quote.author }}</strong>
+    </blockquote>
+</section>
+{% endblock %}
